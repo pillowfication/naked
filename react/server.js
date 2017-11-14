@@ -1,16 +1,15 @@
 const path = require('path')
 const express = require('express')
 
-const PORT = process.argv[2] || process.env.REACT_PORT || 3000
-const WEBSITE_PATH = path.join(__dirname, 'website', 'index.html')
-const PUBLIC_PATH = path.join(__dirname, 'website', 'public')
+const PORT = process.argv[2] || process.env.PFN_PORT || 80
+const INDEX_PATH = path.resolve(__dirname, './dist/index.html')
 
 const app = express()
 
-app.use('/public', express.static(PUBLIC_PATH))
+app.use(express.static(path.resolve(__dirname, './dist')))
 
-app.get('*', (req, res) => {
-  res.sendFile(WEBSITE_PATH)
+app.get('*', (_, response) => {
+  response.sendFile(INDEX_PATH)
 })
 
 app.listen(PORT, () => {

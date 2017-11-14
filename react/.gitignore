@@ -1,4 +1,3 @@
-*.log
-node_modules
-
-website/public
+/node_modules
+/dist
+/.cache

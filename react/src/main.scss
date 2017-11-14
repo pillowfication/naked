@@ -1,0 +1,4 @@
+// See https://github.com/webpack-contrib/css-loader/issues/436
+:global {
+  @import "../node_modules/normalize.css/normalize.css";
+}
